@@ -10,3 +10,7 @@ djangorestframework_simplejwt
 twilio
 drf-yasg
 django-filter
+gunicorn
+
+
+
