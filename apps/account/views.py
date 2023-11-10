@@ -25,7 +25,6 @@ class RegistrationView(APIView):  # регистрируем юзера
                 send_confirmation_email(user.email, user.activation_code)
                 sending_sms(receiver=user.phone_number)
 
-
             except:
                 return Response({"message": "Registered, but troubles with email", 'data': serializer.data}, status=201)
         return Response(serializer.data, status=201)
@@ -73,6 +72,7 @@ class RegistrationPhoneView(GenericAPIView):
             user = serializer.save()
             sending_sms(user.phone_number, user.activation_code)
             return Response('Succesfully registered', status=201)
+
 
 class ActivationPhoneView(APIView):
     def post(self, request):

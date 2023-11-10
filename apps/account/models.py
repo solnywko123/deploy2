@@ -24,11 +24,11 @@ class UserManager(BaseUserManager):
 
         return user
 
-
     def create_user(self, email, password, **kwargs):
         kwargs.setdefault('is_staff', False)
         kwargs.setdefault('is_superuser', False)
         return self._create_user(email, password, **kwargs)
+
 
     def create_superuser(self, email, password, **kwargs):
         kwargs.setdefault('is_staff', True)
@@ -48,7 +48,6 @@ class CustomUser(AbstractUser):
     is_active = models.BooleanField(default=False)
     phone_number = models.CharField(max_length=25, unique=True)
     objects = UserManager()
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 

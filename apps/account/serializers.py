@@ -24,6 +24,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 'Passwords didnt match!'
             )
+
         if password.isdigit() or password.isalpha():
             raise serializers.ValidationError('Пароль не должен быть из одних цифр или букв')
 
